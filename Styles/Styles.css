@@ -411,6 +411,7 @@ h1, h2, h3, h4 {
     background-color: #F6F7F4 !important;
     position: relative;
     overflow: hidden;
+    z-index: 1; /* Definujeme stohovací kontext pro sekci */
 }
 
 .blob-container {
@@ -420,15 +421,17 @@ h1, h2, h3, h4 {
     width: 100%;
     height: 100%;
     pointer-events: none;
-    z-index: 1;
+    z-index: 0; /* Bloby musí jít pod obsah (.container má z-index: 2) */
+    background: #F6F7F4; /* Fix pro mix-blend-mode: multiply */
 }
 
 .blob {
     position: absolute;
     border-radius: 50%;
     filter: blur(90px);
-    opacity: 0.22;
+    opacity: 0.35; /* Mírně zvýšena opacita, aby šly přes blur lépe vidět */
     mix-blend-mode: multiply;
+    will-change: filter;
 }
 
 .blob-1 {
@@ -653,7 +656,6 @@ h1, h2, h3, h4 {
     position: relative;
     z-index: 2;
 }
-
 /* ==========================================================================
    Sekce Info (Světlá šalvěj)
    ========================================================================== */

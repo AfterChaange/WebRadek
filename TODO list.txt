@@ -1,0 +1,7 @@
+TODO list
+
+grafika = min 4x malovaný obrázek a foto
+jak pracuji jiný layout
+remade praktické informace
+pro koho je terapie užitečná lepší grafika
+kontakt button blur + 5
