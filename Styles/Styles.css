@@ -141,7 +141,6 @@ h1, h2, h3, h4 {
     transition: var(--transition-smooth);
 }
 
-/* Pokud se posune na tmavou sekci, navigace zůstane kontrastní a čistá */
 .header-container {
     display: flex;
     justify-content: space-between;
@@ -173,7 +172,7 @@ h1, h2, h3, h4 {
     color: var(--color-primary-dark);
     font-weight: 600;
     font-size: 0.95rem;
-    text-transform: lowercase; /* Přátelské lowercase linky */
+    text-transform: lowercase;
     transition: var(--transition-smooth);
     letter-spacing: 0.5px;
     position: relative;
@@ -232,7 +231,7 @@ h1, h2, h3, h4 {
     font-size: 0.95rem;
     text-decoration: none;
     padding: 13px 32px;
-    border-radius: 50px; /* Plně zaoblené pilulky */
+    border-radius: 50px;
     transition: var(--transition-smooth);
     cursor: pointer;
     border: none;
@@ -293,113 +292,90 @@ h1, h2, h3, h4 {
 }
 
 /* ==========================================================================
-   Hero Sekce (Domů)
+   Hero Sekce (Vycentrováno s HTML obrázkem na pozadí)
    ========================================================================== */
 .hero-section {
-    padding: 100px 0 140px;
-    min-height: calc(90vh - 80px);
+    padding: 120px 0 140px;
+    min-height: calc(100vh - 80px);
     display: flex;
     align-items: center;
     position: relative;
     overflow: hidden;
+    background-color: var(--color-bg-dark);
+    z-index: 1;
 }
 
-.hero-container {
-    display: grid;
-    grid-template-columns: 1.25fr 1fr;
-    gap: 70px;
+/* Stylování HTML obrázku na pozadí */
+.hero-bg-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: -2;
+    pointer-events: none;
+}
+
+/* Tmavé překrytí nad obrázkem */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(20, 35, 30, 0.7);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.hero-container-centered {
+    display: flex;
+    justify-content: center;
     align-items: center;
+    text-align: center;
+    width: 100%;
 }
 
-.hero-text h1 {
+.text-center-hero h1 {
+    color: var(--color-text-dark-theme) !important;
     font-size: 4.6rem;
     line-height: 1.12;
     margin: 20px 0;
     letter-spacing: -2px;
 }
 
-.hero-lead {
-    font-size: 1.2rem;
+.text-center-hero .hero-lead {
+    color: #C5D1CB !important;
+    font-size: 1.25rem;
     line-height: 1.8;
-    margin-bottom: 40px;
-    max-width: 540px;
+    margin: 0 auto 40px;
+    max-width: 680px;
 }
 
-.hero-actions {
+.hero-actions-centered {
     display: flex;
     gap: 20px;
     align-items: center;
-}
-
-.hero-actions .btn-secondary {
-    border: none;
-    border-bottom: 2px solid var(--color-primary);
-    border-radius: 0;
-    padding: 4px 0;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-}
-
-.hero-actions .btn-secondary:hover {
-    background: transparent;
-    border-color: var(--color-accent);
-    color: var(--color-accent-dark);
-    transform: translateY(-2px);
-}
-
-/* Hero vizuál s odznakem a dýchajícím stínem */
-.hero-visual {
-    display: flex;
     justify-content: center;
-    position: relative;
 }
 
-.hero-image-wrapper {
-    position: relative;
-    width: 380px;
-    height: 480px;
+/* Úprava sekundárního tlačítka na tmavém pozadí */
+.text-center-hero .btn-secondary {
+    color: var(--color-text-dark-theme);
+    border-color: var(--color-text-dark-theme);
 }
 
-.hero-image-frame {
-    width: 100%;
-    height: 100%;
-    border-radius: 120px 20px 120px 20px;
-    overflow: hidden;
-    box-shadow: var(--shadow-lg);
-    border: 1px solid rgba(50, 77, 65, 0.08);
-    position: relative;
-    z-index: 3;
+.text-center-hero .btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+    border-radius: 50px;
+    padding: 13px 32px;
 }
 
-.hero-image-border {
-    position: absolute;
-    top: 18px;
-    left: -18px;
-    width: 100%;
-    height: 100%;
-    border: 2px solid var(--color-accent);
-    border-radius: 120px 20px 120px 20px;
-    z-index: 2;
-    pointer-events: none;
-    transition: var(--transition-smooth);
-}
-
-.hero-image-wrapper:hover .hero-image-border {
-    transform: translate(6px, -6px);
-}
-
-.hero-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.8s ease;
-}
-
-.hero-image-wrapper:hover .hero-img {
-    transform: scale(1.04);
-}
-
-/* minimalistický scroll indikátor */
+/* Minimalistický scroll indikátor */
 .scroll-indicator {
     position: absolute;
     bottom: 32px;
@@ -411,7 +387,7 @@ h1, h2, h3, h4 {
 .scroll-indicator .scroll-dot {
     width: 8px;
     height: 8px;
-    background-color: var(--color-primary);
+    background-color: var(--color-text-dark-theme);
     border-radius: 50%;
     animation: bounce-dot 1.6s ease-in-out infinite;
     display: block;
@@ -423,12 +399,83 @@ h1, h2, h3, h4 {
 }
 
 /* ==========================================================================
-   Sekce O mně (Tmavé smrkové pozadí)
+   Sekce O mně (Světlé organické pozadí s fleky)
    ========================================================================== */
 .about-section {
     padding: 140px 0;
     position: relative;
     border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
+}
+
+.theme-light-blobs {
+    background-color: #F6F7F4 !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.blob-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(90px);
+    opacity: 0.22;
+    mix-blend-mode: multiply;
+}
+
+.blob-1 {
+    width: 450px;
+    height: 450px;
+    background-color: var(--color-accent);
+    top: -100px;
+    left: -150px;
+}
+
+.blob-2 {
+    width: 500px;
+    height: 500px;
+    background-color: var(--color-primary-light);
+    bottom: -100px;
+    right: -100px;
+}
+
+.theme-light-blobs h2, 
+.theme-light-blobs h3,
+.theme-light-blobs h4,
+.theme-light-blobs .lead-text {
+    color: var(--color-primary-dark) !important;
+}
+
+.theme-light-blobs p,
+.theme-light-blobs .credo-quote p {
+    color: var(--color-text-light-theme) !important;
+}
+
+.theme-light-blobs .pillar-card {
+    background: rgba(255, 255, 255, 0.65) !important;
+    border: 1px solid rgba(50, 77, 65, 0.15) !important;
+    box-shadow: 0 10px 30px rgba(50, 77, 65, 0.05);
+}
+
+.theme-light-blobs .pillar-card h4 {
+    color: var(--color-primary-dark) !important;
+}
+
+.theme-light-blobs .pillar-card p {
+    color: var(--color-text-muted-light) !important;
+}
+
+.theme-light-blobs .pillar-icon {
+    background-color: rgba(50, 77, 65, 0.08) !important;
+    color: var(--color-primary) !important;
 }
 
 .about-grid {
@@ -495,7 +542,6 @@ h1, h2, h3, h4 {
 
 .about-content .lead-text {
     font-size: 1.25rem;
-    color: var(--color-text-dark-theme);
     font-weight: 550;
     margin-bottom: 24px;
 }
@@ -507,7 +553,7 @@ h1, h2, h3, h4 {
 /* Jak pracuji */
 .approach-block {
     margin-top: 140px;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
     padding-top: 80px;
 }
 
@@ -541,10 +587,9 @@ h1, h2, h3, h4 {
     font-size: 1.65rem;
     font-style: italic;
     line-height: 1.65;
-    color: var(--color-text-dark-theme);
 }
 
-/* Pillars Grid (Skleněné karty s vnitřním svitem) */
+/* Pillars Grid */
 .pillars-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -553,8 +598,6 @@ h1, h2, h3, h4 {
 
 .pillar-card {
     position: relative;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.06);
     padding: 44px 36px;
     border-radius: var(--border-radius-md);
     overflow: hidden;
@@ -563,9 +606,8 @@ h1, h2, h3, h4 {
 
 .pillar-card:hover {
     transform: translateY(-6px);
-    background: rgba(255, 255, 255, 0.05);
-    border-color: var(--color-accent);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border-color: var(--color-accent) !important;
+    box-shadow: 0 15px 35px rgba(50, 77, 65, 0.08);
 }
 
 .pillar-glow {
@@ -588,8 +630,6 @@ h1, h2, h3, h4 {
 .pillar-icon {
     width: 48px;
     height: 48px;
-    background-color: rgba(216, 156, 116, 0.1);
-    color: var(--color-accent);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -676,7 +716,7 @@ h1, h2, h3, h4 {
     font-size: 1.25rem;
     font-weight: 700;
     color: var(--color-primary-dark);
-    text-transform: lowercase; /* lowercase styl zmysli */
+    text-transform: lowercase;
     flex-grow: 1;
     margin: 0;
 }
@@ -710,7 +750,6 @@ h1, h2, h3, h4 {
     color: var(--color-text-muted-light);
 }
 
-/* Rozbalení na hover / active */
 .topic-row:hover .topic-acc-content, .topic-row.active .topic-acc-content {
     max-height: 140px;
     opacity: 1;
@@ -766,7 +805,6 @@ h1, h2, h3, h4 {
     border-color: var(--color-accent);
 }
 
-/* Svítící aura na pozadí karet ceníku */
 .price-card-glow {
     position: absolute;
     top: -30%;
@@ -908,7 +946,7 @@ h1, h2, h3, h4 {
    Sekce Kontakt (Tmavá smrková noc)
    ========================================================================== */
 .contact-section {
-    padding: 140px 0 180px; /* prostor pro lesní siluetu na spodu */
+    padding: 140px 0 180px;
     position: relative;
 }
 
@@ -1019,11 +1057,11 @@ h1, h2, h3, h4 {
 /* Lesní silueta nad patičkou */
 .footer-forest-decor {
     position: absolute;
-    bottom: -1px; /* Překrytí spoje */
+    bottom: -1px;
     left: 0;
     width: 100%;
     height: 75px;
-    color: var(--color-primary-dark); /* Sloučí se s patičkou */
+    color: var(--color-primary-dark);
     z-index: 3;
     overflow: hidden;
     pointer-events: none;
@@ -1125,7 +1163,7 @@ h1, h2, h3, h4 {
 }
 
 /* ==========================================================================
-   Scroll Reveal (Plynulý vznik prvků)
+   Scroll Reveal
    ========================================================================== */
 .reveal {
     opacity: 0;
@@ -1138,20 +1176,15 @@ h1, h2, h3, h4 {
     transform: translateY(0);
 }
 
-.hero-visual.reveal {
-    transition-delay: 0.15s;
-}
-
 /* ==========================================================================
    Responzivita (Media Queries)
    ========================================================================== */
 
 @media (max-width: 1024px) {
-    .hero-text h1 {
-        font-size: 3.2rem;
+    .text-center-hero h1 {
+        font-size: 3.5rem;
     }
     
-    .hero-container,
     .about-grid,
     .contact-grid {
         gap: 40px;
@@ -1172,7 +1205,15 @@ h1, h2, h3, h4 {
         font-size: 15px;
     }
     
-    /* Mobilní navigace s burgerem */
+    .hero-section {
+        background-attachment: scroll;
+        padding: 100px 0;
+    }
+
+    .text-center-hero h1 {
+        font-size: 3rem;
+    }
+    
     .menu-toggle {
         display: flex;
     }
@@ -1223,27 +1264,6 @@ h1, h2, h3, h4 {
         transform: translateY(-8px) rotate(-45deg);
     }
     
-    /* Mobilní zalamování */
-    .hero-container {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 48px;
-    }
-    
-    .hero-text p {
-        margin-left: auto;
-        margin-right: auto;
-    }
-    
-    .hero-actions {
-        justify-content: center;
-    }
-    
-    .hero-image-wrapper {
-        max-width: 320px;
-        height: 400px;
-    }
-    
     .about-grid {
         grid-template-columns: 1fr;
     }
@@ -1275,7 +1295,7 @@ h1, h2, h3, h4 {
     }
     
     .topic-row:hover .topic-acc-content {
-        max-height: 200px; /* dostatek místa pro více řádků na mobilu */
+        max-height: 200px;
     }
     
     .pricing-grid {
@@ -1301,16 +1321,16 @@ h1, h2, h3, h4 {
 }
 
 @media (max-width: 576px) {
-    .hero-text h1 {
-        font-size: 2.5rem;
+    .text-center-hero h1 {
+        font-size: 2.4rem;
     }
     
-    .hero-actions {
+    .hero-actions-centered {
         flex-direction: column;
         width: 100%;
     }
     
-    .hero-actions .btn {
+    .hero-actions-centered .btn {
         width: 100%;
     }
     
