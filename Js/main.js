@@ -104,4 +104,30 @@ document.addEventListener('DOMContentLoaded', function() {
             this.classList.toggle('active');
         });
     });
+    const sections = document.querySelectorAll("section[id]");
+    const navLinks = document.querySelectorAll("#mainNav a");
+
+    const observerOptions = {
+        root: null,
+        rootMargin: "-30% 0px -60% 0px" // Aktivuje se, když je sekce v hlavní části viewportu
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                const currentId = entry.target.getAttribute("id");
+
+                navLinks.forEach((link) => {
+                    // Pokud href odkazu končí #id aktuální sekce, přidá třídu active
+                    if (link.getAttribute("href") === `#${currentId}`) {
+                        link.classList.add("active");
+                    } else {
+                        link.classList.remove("active");
+                    }
+                });
+            }
+        });
+    }, observerOptions);
+
+    sections.forEach((section) => observer.observe(section));
 });
