@@ -887,34 +887,44 @@ h1, h2, h3, h4 {
     padding: 120px 0;
     color: var(--color-text-light-theme);
 }
+.info-section-clean .container {
+    max-width: 1280px; /* Širší kontejner pro větší strom */
+}
 
-/* DvouSloupcový Grid - text začíná IHNED za fixní fotkou */
+/* DvouSloupcový Grid - karty vlevo, strom vpravo */
 .info-flex-container {
     display: grid;
-    grid-template-columns: 120px 1fr; /* Zmenšeno pro ideální poměr k ikoně stromu */
-    gap: 40px; 
+    grid-template-columns: 600px 1fr; /* Karty vlevo mají 600px, strom vpravo zabírá zbytek */
+    gap: 50px; /* Zmenšeno pro větší šířku pravého sloupce */
     align-items: center; 
     width: 100%;
 }
 
-/* Zbavíme se šedého boxu a stínu okolo stromu, pokud tam no-bg obrázek plave samostatně */
+/* Strom bez šedého pozadí a stínu */
 .info-visual-small {
-    width: 100%;
-    max-width: 120px;
-    box-shadow: none !important; /* Odstraní případný nežádoucí šedý čtverec */
+    width: calc(100% + 160px);
+    max-width: calc(100% + 160px); 
+    box-shadow: none !important; 
     border-radius: 0;
     overflow: visible;
+    order: 2; /* Zobrazí se vpravo */
+    margin-right: -160px; /* Přetečení doprava blíž ke kraji obrazovky */
 }
 
 .info-small-img {
     width: 100%;
+    max-width: 100%; /* Plné využití šířky pravého sloupce (cca 580px) */
     height: auto;
     display: block;
     object-fit: contain;
+    margin-left: auto;
+    margin-right: 0; /* Zarovnání doprava */
 }
 
 .info-content-right {
     width: 100%;
+    max-width: 600px; /* Karty na šířku cca 600px */
+    order: 1; /* Zobrazí se vlevo */
 }
 
 .info-section-clean .formats-grid {
@@ -923,17 +933,28 @@ h1, h2, h3, h4 {
     gap: 24px !important;
     width: 100% !important;
     max-width: 100% !important; 
-    margin: 0 !important; /* Zruší centrování margin: 0 auto, které dělalo tu obří díru */
+    margin: 0 !important; 
 }
-@media (max-width: 868px) {
+@media (max-width: 992px) {
     .info-flex-container {
         grid-template-columns: 1fr;
         justify-items: center;
-        gap: 30px;
+        gap: 40px;
     }
     
     .info-visual-small {
-        max-width: 140px; 
+        width: 100%;
+        max-width: 250px; /* Větší strom na tabletu/mobilu */
+        margin-right: 0; /* Vynulování přetečení na mobilu */
+        order: 0; /* Zpět nahoru */
+    }
+
+    .info-content-right {
+        order: 0;
+    }
+
+    .info-small-img {
+        margin: 0 auto; /* Vycentrování na mobilu/tabletu */
     }
     
     .info-section-clean .formats-grid {
