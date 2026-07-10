@@ -1,12 +1,21 @@
 document.addEventListener('DOMContentLoaded', function() {
-    
-    // 1. Nastavení aktuálního roku v patičce
+
+    const linkedinProfileUrl = 'https://cz.linkedin.com/in/radovan-bista-76410614b';
+    document.querySelectorAll('[data-social-link="linkedin"]').forEach(link => {
+        link.setAttribute('href', linkedinProfileUrl);
+    });
+
+    /* ==========================================================================
+       Sekce: Nastavení aktuálního roku v patičce
+       ========================================================================== */
     const yearEl = document.getElementById('year');
     if (yearEl) {
         yearEl.textContent = new Date().getFullYear();
     }
 
-    // 2. Mobilní navigace (burger menu)
+    /* ==========================================================================
+       Sekce: Mobilní navigace (burger menu)
+       ========================================================================== */
     const menuToggle = document.getElementById('menuToggle');
     const mainNav = document.getElementById('mainNav');
     const body = document.body;
@@ -19,7 +28,6 @@ document.addEventListener('DOMContentLoaded', function() {
             body.classList.toggle('menu-active');
         });
 
-        // Zavřít menu při kliknutí mimo navigaci
         document.addEventListener('click', function(e) {
             if (mainNav.classList.contains('open') && !mainNav.contains(e.target) && !menuToggle.contains(e.target)) {
                 menuToggle.classList.remove('open');
@@ -29,7 +37,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // 3. Plynulé rolování (Smooth Scroll) s offsetem pro fixní hlavičku
+    /* ==========================================================================
+       Sekce: Plynulé rolování (Smooth Scroll)
+       ========================================================================== */
     const header = document.querySelector('.header-main');
     const headerHeight = header ? header.offsetHeight : 80;
 
@@ -41,8 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
                 e.preventDefault();
-                
-                // Zavření mobilního menu před scrollováním
+
                 if (mainNav && mainNav.classList.contains('open')) {
                     menuToggle.classList.remove('open');
                     mainNav.classList.remove('open');
@@ -50,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
                 
                 const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-                const offsetPosition = elementPosition - headerHeight - 10; // Extra 10px pro odstup
+                const offsetPosition = elementPosition - headerHeight - 10;
 
                 window.scrollTo({
                     top: offsetPosition,
@@ -60,7 +69,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // 4. Scroll Reveal Animace (Intersection Observer)
+    /* ==========================================================================
+       Sekce: Scroll Reveal Animace
+       ========================================================================== */
     const revealElements = document.querySelectorAll('.reveal');
     
     if ('IntersectionObserver' in window && revealElements.length > 0) {
@@ -68,39 +79,37 @@ document.addEventListener('DOMContentLoaded', function() {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
-                    // Jakmile prvek jednou animujeme, přestaneme ho sledovat
                     observer.unobserve(entry.target);
                 }
             });
         };
 
         const revealObserver = new IntersectionObserver(revealCallback, {
-            root: null, // viewport
-            threshold: 0.15, // spustí se při zobrazení 15 % prvku
-            rootMargin: '0px 0px -50px 0px' // posunutí spodní hranice o 50px pro lepší zážitek
+            root: null,
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
         });
 
         revealElements.forEach(element => {
             revealObserver.observe(element);
         });
     } else {
-        // Fallback: okamžité zviditelnění prvků na starších prohlížečích
         revealElements.forEach(element => {
             element.classList.add('visible');
         });
     }
 
-    // 5. Klikací akordeon témat (pro mobilní telefony a dotykové obrazovky)
+    /* ==========================================================================
+       Sekce: Klikací akordeon témat
+       ========================================================================== */
     const topicRows = document.querySelectorAll('.topic-row');
     topicRows.forEach(row => {
         row.addEventListener('click', function() {
-            // Zavřít ostatní otevřené řádky
             topicRows.forEach(otherRow => {
                 if (otherRow !== row) {
                     otherRow.classList.remove('active');
                 }
             });
-            // Přepnout aktivní třídu u aktuálního řádku
             this.classList.toggle('active');
         });
     });
@@ -109,7 +118,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const observerOptions = {
         root: null,
-        rootMargin: "-30% 0px -60% 0px" // Aktivuje se, když je sekce v hlavní části viewportu
+        rootMargin: "-30% 0px -60% 0px"
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -118,7 +127,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 const currentId = entry.target.getAttribute("id");
 
                 navLinks.forEach((link) => {
-                    // Pokud href odkazu končí #id aktuální sekce, přidá třídu active
                     if (link.getAttribute("href") === `#${currentId}`) {
                         link.classList.add("active");
                     } else {

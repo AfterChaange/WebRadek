@@ -1,9 +1,6 @@
 /* ==========================================================================
-   Mgr. Radovan Bista - Psychoterapie a poradenství
-   Kompletní, vyčištěné a optimalizované produkční CSS
+   Sekce: root
    ========================================================================== */
-
-/* Reset & Základní nastavení */
 *, *::before, *::after {
     margin: 0;
     padding: 0;
@@ -11,37 +8,23 @@
 }
 
 :root {
-    /* Barevná paleta plná charakteru (přírodní tóny) */
-    --color-primary: #324D41;          /* Teplá šalvějová zeleň */
-    --color-primary-dark: #14231E;     /* Hluboká smrková noc */
-    --color-primary-light: #7E9D90;    /* Světlá šalvějová mlha */
-    --color-accent: #C2A68F;           /* Mandlová / Jemná písková pro akcenty */
-    --color-accent-dark: #A88E78;   
-    
-    /* Pozadí sekcí */
-    --color-bg-light: #E9EBE6;         /* Šalvějová mlha (útulné světlé pozadí) */
-    --color-bg-dark: #14231E;          /* Smrková noc (tmavé, bezpečné pozadí) */
-    --color-bg-card: #FDFDFB;          /* Smetanový lněný papír */
-    
-    /* Textové barvy */
-    --color-text-light-theme: #1C2924; /* Tmavě smrková pro čtení na světlém pozadí */
-    --color-text-dark-theme: #EDF2F0;  /* Měkká krémová pro čtení na tmavém pozadí */
-    --color-text-muted-light: #56655F; /* Tlumená pro světlé pozadí */
-    --color-text-muted-dark: #A5B3AC;  /* Tlumená pro tmavé pozadí */
-    
-    /* Typografie */
-    --font-headings: 'Playfair Display', Georgia, serif;
-    --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-    
-    /* Rámečky & Zaoblení */
+    --color-primary: #324D41;
+    --color-primary-dark: #14231E;
+    --color-primary-light: #7E9D90;
+    --color-accent: #C2A68F;
+    --color-accent-dark: #A88E78;
+
+    --font-headings: "Libre Baskerville", serif;
+ 
+    --font-body: "Libre Baskerville", serif;
+
     --border-radius-sm: 10px;
     --border-radius-md: 20px;
     --border-radius-lg: 32px;
     --shadow-sm: 0 4px 20px rgba(20, 35, 30, 0.03);
     --shadow-md: 0 12px 35px rgba(20, 35, 30, 0.05);
     --shadow-lg: 0 25px 55px rgba(20, 35, 30, 0.08);
-    
-    /* Plynulé přechody */
+
     --transition-smooth: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
@@ -66,7 +49,9 @@ body {
     padding: 0 24px;
 }
 
-/* Hlavičky a typografický systém */
+/* ==========================================================================
+   Sekce: Head a text
+   ========================================================================== */
 h1, h2, h3, h4 {
     font-family: var(--font-headings);
     line-height: 1.2;
@@ -99,8 +84,8 @@ h1, h2, h3, h4 {
 }
 
 /* ==========================================================================
-   Střídání témat (Světlo a Tma)
-   ========================================================================== */
+    Sekce: Střídání témat
+    ========================================================================== */
 .theme-light {
     background-color: var(--color-bg-light);
     color: var(--color-text-light-theme);
@@ -128,8 +113,8 @@ h1, h2, h3, h4 {
 }
 
 /* ==========================================================================
-   Hlavička (Header) & Sticky Navigace
-   ========================================================================== */
+    Sekce: Header
+    ========================================================================== */
 .header-main {
     position: sticky;
     top: 0;
@@ -155,6 +140,10 @@ h1, h2, h3, h4 {
     text-decoration: none;
     transition: var(--transition-smooth);
     letter-spacing: -0.5px;
+}
+.logo div{
+    font-size: 0.90rem;
+    font-weight: 600;
 }
 
 .logo span {
@@ -209,7 +198,9 @@ h1, h2, h3, h4 {
     background-color: var(--color-accent) !important;
 }
 
-/* Mobilní burger */
+/* ==========================================================================
+    Sekce: burger
+    ========================================================================== */
 .menu-toggle {
     display: none;
     flex-direction: column;
@@ -231,8 +222,8 @@ h1, h2, h3, h4 {
 }
 
 /* ==========================================================================
-   Tlačítka (Pill Buttons s tekutým stínem)
-   ========================================================================== */
+    Sekce: Tlačítka
+    ========================================================================== */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -274,7 +265,9 @@ h1, h2, h3, h4 {
     transform: translateY(-2px);
 }
 
-/* Badges */
+/* ==========================================================================
+    Sekce: Badges
+    ========================================================================== */
 .badge {
     display: inline-block;
     background-color: rgba(216, 156, 116, 0.12);
@@ -288,8 +281,8 @@ h1, h2, h3, h4 {
 }
 
 /* ==========================================================================
-   Hero Sekce (Vycentrováno s HTML obrázkem na pozadí)
-   ========================================================================== */
+    Sekce: Hero
+    ========================================================================== */
 .hero-section {
     padding: 120px 0 140px;
     min-height: calc(100vh - 80px);
@@ -391,8 +384,8 @@ h1, h2, h3, h4 {
 }
 
 /* ==========================================================================
-   Sekce O mně (Světlé organické pozadí s fleky)
-   ========================================================================== */
+    Sekce: O mně 
+    ========================================================================== */
 .about-section {
     padding: 140px 0;
     position: relative;
@@ -647,8 +640,8 @@ h1, h2, h3, h4 {
 }
 
 /* ==========================================================================
-   Sekce Info (Světlá šalvěj - Témata)
-   ========================================================================== */
+    Sekce: Info 
+    ========================================================================== */
 .info-section {
     padding: 140px 0;
 }
@@ -753,8 +746,8 @@ h1, h2, h3, h4 {
 }
 
 /* ==========================================================================
-   Sekce: Samostatný ceník (Šalvějová mlha)
-   ========================================================================== */
+    Sekce: Samostatný ceník
+    ========================================================================== */
 .pricing-section {
     padding: 140px 0;
 }
@@ -862,7 +855,7 @@ h1, h2, h3, h4 {
 
 
 /* ==========================================================================
-   Sekce: Info / Praktické informace (Čistě bílá, malá fotka pevně vlevo)
+   Sekce: Info / Praktické informace
    ========================================================================== */
 .info-section-clean {
     background-color: #ffffff !important;
@@ -870,43 +863,41 @@ h1, h2, h3, h4 {
     color: var(--color-text-light-theme);
 }
 .info-section-clean .container {
-    max-width: 1280px; /* Širší kontejner pro větší strom */
+    max-width: 1280px;
 }
 
-/* DvouSloupcový Grid - karty vlevo, strom vpravo */
 .info-flex-container {
     display: grid;
-    grid-template-columns: 600px 1fr; /* Karty vlevo mají 600px, strom vpravo zabírá zbytek */
-    gap: 50px; /* Zmenšeno pro větší šířku pravého sloupce */
-    align-items: center; 
+    grid-template-columns: 600px 1fr;
+    gap: 50px;
+    align-items: center;
     width: 100%;
 }
 
-/* Strom bez šedého pozadí a stínu */
 .info-visual-small {
     width: calc(100% + 160px);
-    max-width: calc(100% + 160px); 
-    box-shadow: none !important; 
+    max-width: calc(100% + 160px);
+    box-shadow: none !important;
     border-radius: 0;
     overflow: visible;
-    order: 2; /* Zobrazí se vpravo */
-    margin-right: -160px; /* Přetečení doprava blíž ke kraji obrazovky */
+    order: 2;
+    margin-right: -160px;
 }
 
 .info-small-img {
     width: 100%;
-    max-width: 100%; /* Plné využití šířky pravého sloupce (cca 580px) */
+    max-width: 100%;
     height: auto;
     display: block;
     object-fit: contain;
     margin-left: auto;
-    margin-right: 0; /* Zarovnání doprava */
+    margin-right: 0;
 }
 
 .info-content-right {
     width: 100%;
-    max-width: 600px; /* Karty na šířku cca 600px */
-    order: 1; /* Zobrazí se vlevo */
+    max-width: 600px;
+    order: 1;
 }
 
 .info-section-clean .formats-grid {
@@ -914,8 +905,8 @@ h1, h2, h3, h4 {
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 24px !important;
     width: 100% !important;
-    max-width: 100% !important; 
-    margin: 0 !important; 
+    max-width: 100% !important;
+    margin: 0 !important;
 }
 @media (max-width: 992px) {
     .info-flex-container {
@@ -926,9 +917,9 @@ h1, h2, h3, h4 {
     
     .info-visual-small {
         width: 100%;
-        max-width: 250px; /* Větší strom na tabletu/mobilu */
-        margin-right: 0; /* Vynulování přetečení na mobilu */
-        order: 0; /* Zpět nahoru */
+        max-width: 250px;
+        margin-right: 0;
+        order: 0;
     }
 
     .info-content-right {
@@ -936,7 +927,7 @@ h1, h2, h3, h4 {
     }
 
     .info-small-img {
-        margin: 0 auto; /* Vycentrování na mobilu/tabletu */
+        margin: 0 auto;
     }
     
     .info-section-clean .formats-grid {
@@ -995,8 +986,8 @@ h1, h2, h3, h4 {
 }
 
 /* ==========================================================================
-   Sekce: Kontakt (Minimalistická šedobílá s kartami)
-   ========================================================================== */
+    Sekce: Kontakt 
+    ========================================================================== */
 .contact-section {
     padding: 140px 0 180px;
     position: relative;
@@ -1133,8 +1124,8 @@ h1, h2, h3, h4 {
 }
 
 /* ==========================================================================
-   Patička (Footer)
-   ========================================================================== */
+    Sekce: Footer
+    ========================================================================== */
 .footer-main {
     background-color: var(--color-primary-dark);
     color: #edf2f0;
@@ -1222,8 +1213,8 @@ h1, h2, h3, h4 {
 }
 
 /* ==========================================================================
-   Scroll Reveal
-   ========================================================================== */
+    Sekce: Scroll Reveal
+    ========================================================================== */
 .reveal {
     opacity: 0;
     transform: translateY(30px);
@@ -1236,8 +1227,8 @@ h1, h2, h3, h4 {
 }
 
 /* ==========================================================================
-   Responzivita (Media Queries)
-   ========================================================================== */
+    Sekce: Media Queries
+    ========================================================================== */
 @media (max-width: 1024px) {
     .text-center-hero h1 {
         font-size: 3.5rem;
@@ -1260,17 +1251,17 @@ h1, h2, h3, h4 {
 
 @media (max-width: 868px) {
     .info-flex-container {
-        grid-template-columns: 1fr; /* Na mobilu a tabletu skočí pod sebe */
+        grid-template-columns: 1fr;
         justify-items: center;
         gap: 30px;
     }
     
     .info-visual-small {
-        width: 180px; /* Menší rozměr pro mobilní obrazovky */
+        width: 180px;
     }
     
     .info-section-clean .formats-grid {
-        grid-template-columns: 1fr; /* Karty formátů pod sebou */
+        grid-template-columns: 1fr;
     }
 }
 
@@ -1412,5 +1403,8 @@ h1, h2, h3, h4 {
     
     .footer-col.branding {
         grid-column: span 1;
+    }
+    .smallFooter {
+        font-size: 2px;
     }
 }

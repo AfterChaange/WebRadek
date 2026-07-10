@@ -3,43 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Google Fonts -->
+
+    <!-- ==========================================================================
+       Sekce: Google Fonts
+       ========================================================================== -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
-    
+
     <link rel="stylesheet" href="Styles/Styles.css">
     <title>Mgr. Radovan Bista | Terapie a poradenství</title>
 </head>
 <body>
 
-    <!-- Hlavička (Navigace) -->
+    <!-- ==========================================================================
+       Sekce: Hlavička (Navigace)
+       ========================================================================== -->
     <header class="header-main">
         <div class="container header-container">
             <a href="#" class="logo">Radovan Bista<span>.</span></a>
-            
+
             <button id="menuToggle" class="menu-toggle" aria-label="Otevřít menu">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
             </button>
-            
-<nav id="mainNav" class="nav-menu">
-    <a href="#domu">domů</a>
-    <a href="#o-mne">o mně</a>
-    <a href="#info">info</a>
-    <a href="#cenik">ceník</a>
-    <a href="#kontakt">kontakt</a>
-</nav>
+
+            <nav id="mainNav" class="nav-menu">
+                <a href="#domu">domů</a>
+                <a href="#o-mne">o mně</a>
+                <a href="#info">info</a>
+                <a href="#cenik">ceník</a>
+                <a href="#kontakt">kontakt</a>
+            </nav>
         </div>
     </header>
 
-    <!-- Domů (Hero Sekce) - Obrázek přímo v HTML, vycentrováno -->
+    <!-- ==========================================================================
+       Sekce: Domů (Hero Sekce)
+       ========================================================================== -->
     <section id="domu" class="hero-section text-center-hero">
-        <!-- Obrázek vložený přímo v HTML jako pozadí -->
-        <img src="img/landing_hero_img.png" alt="Cesta k sobě" class="hero-bg-img" loading="eager">
-        <!-- Tmavá vrstva pro čitelnost textu -->
+        <img src="img/image0.png" alt="Cesta k sobě" class="hero-bg-img" loading="eager">
         <div class="hero-overlay"></div>
 
         <div class="container hero-container-centered">
@@ -54,7 +58,6 @@
             </div>
         </div>
         
-        <!-- Plynulý indikátor scrollování -->
         <div class="scroll-indicator">
             <a href="#o-mne" aria-label="Rolovat dolů">
                 <span class="scroll-dot"></span>
@@ -62,6 +65,9 @@
         </div>
     </section>
 
+    <!-- ==========================================================================
+       Sekce: O mně
+       ========================================================================== -->
     <section id="o-mne" class="about-section theme-light-blobs">
     <div class="blob-container">
         <div class="blob blob-1"></div>
@@ -84,6 +90,7 @@
                 <h2>Mgr. Radovan Bista</h2>
                 <p class="lead-text">Jsem terapeut připravený doprovázet Vás na Vaší cestě k porozumění sobě samým a k objevování nových úhlů pohledu na svět.</p>
                 <p>Věřím, že přijetí a porozumění sobě se odráží v naší optice na vnější svět. Nejsem odborníkem na život druhých (občas ani na ten svůj), jsem však odborníkem na terapeutický proces, který stojí zejména na vztahu dvou lidí. Proto pro mě během naší spolupráce bývá důležité získávat zpětnou vazbu k tomu, jak se v našem společném prostoru cítíte a jak si vedeme v našem vztahu.</p>
+                <a href="detail.html" class="btn btn-primary">více o mně</a>
                 <p>Nabízím Vám bezpečný a respektující přístup, doprovázení v terapeutickém procesu a podporu při hledání řešení Vašich životních situací ve Vašem individuálním tempu.</p>
             </div>
         </div>
@@ -128,8 +135,10 @@
     </div>
 </section>
 
-    <!-- Info (Témata + Ceníky + Formy) - Světlá šalvějová mlha -->
-<section id="info" class="info-section-clean">
+    <!-- ==========================================================================
+       Sekce: Info (Témata + Formy)
+       ========================================================================== -->
+    <section id="info" class="info-section-clean">
     <div class="container">
         <div class="info-flex-container">
             
@@ -149,17 +158,17 @@
                     </div>
                 </div>
                 
-                <div class="info-note" style="margin-left: 0; margin-right: 0; max-width: 100%; margin-top: 32px;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-                    <p><strong>Důležité upozornění:</strong> Nejsem smluvním partnerem zdravotních pojišťoven, veškeré platby jsou hrazeny přímou platbou (hotově či na účet). To zaručuje, že o naší spolupráci neexistuje žádný záznam v lékařské databázi a je plně anonymní.</p>
-                </div>
+
             </div>
             
         </div>
     </div>
 </section>
-<!-- cenik sekce -->
-            <section id="cenik" class="pricing-section theme-light">
+
+    <!-- ==========================================================================
+       Sekce: Ceník
+       ========================================================================== -->
+    <section id="cenik" class="pricing-section theme-light">
     <div class="container">
         <div class="pricing-block reveal" style="margin-top: 0; padding-top: 0; border-top: none;">
             <div class="pricing-header text-center">
@@ -169,7 +178,6 @@
             </div>
             
             <div class="pricing-grid">
-                <!-- Služba 1 -->
                 <div class="price-card">
                     <div class="price-card-glow"></div>
                     <h3>Terapie pro dospělé</h3>
@@ -177,7 +185,6 @@
                     <p class="price-desc">Individuální poradenství a psychoterapie zaměřená na témata a životní výzvy dospělých klientů.</p>
                     <a href="#kontakt" class="btn btn-primary">sjednat termín</a>
                 </div>
-                <!-- Služba 2 -->
                 <div class="price-card featured">
                     <div class="price-card-glow"></div>
                     <h3>Terapie pro dospívající a rodiče</h3>
@@ -187,11 +194,16 @@
                 </div>
             </div>
         </div>
+                        <div class="info-note" style="margin-left: 0; margin-right: 0; max-width: 100%; margin-top: 32px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                    <p><strong>Důležité upozornění:</strong> Nejsem smluvním partnerem zdravotních pojišťoven, veškeré platby jsou hrazeny přímou platbou (hotově či na účet). To zaručuje, že o naší spolupráci neexistuje žádný záznam v lékařské databázi a je plně anonymní.</p>
+                </div>
     </div>
 </section>
 
-    <!-- Kontakt - Tmavá smrková noc -->
-    <!-- Změna: nová třída contact-clean -->
+    <!-- ==========================================================================
+       Sekce: Kontakt
+       ========================================================================== -->
 <section id="kontakt" class="contact-section contact-clean">
     <div class="container">
         <div class="contact-grid">
@@ -200,8 +212,7 @@
                 <span class="section-subtitle">Spojení</span>
                 <h2>Kontakt</h2>
                 <p class="contact-lead-text">Pokud máte zájem o sjednání termínu nebo se chcete na cokoli zeptat, kontaktujte mě prosím telefonicky nebo e-mailem. Rád se Vám ozvu zpět.</p>
-                
-                <!-- Změna: Přidány karty pro jednotlivé údaje -->
+
                 <div class="details-list">
                     <div class="detail-item contact-card-item">
                         <div class="detail-icon">
@@ -233,20 +244,11 @@
                         </div>
                     </div>
 
-                    <div class="detail-item contact-card-item">
-                        <div class="detail-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-                        </div>
-                        <div class="detail-text">
-                            <h4>Fakturační údaje</h4>
-                            <p>Mgr. Radovan Bista<br>IČO: 12345678</p>
-                        </div>
-                    </div>
+                   
                 </div>
             </div>
             
             <div class="contact-visual reveal">
-                <!-- Mapa zůstává stejná -->
                 <div class="map-container-wrapper">
                     <div class="map-container-tint"></div>
                     <div class="map-container">
@@ -259,7 +261,9 @@
     </div>
 </section>
 
-    <!-- Patička - Tmavá -->
+     <!-- ==========================================================================
+         Sekce: Patička
+         ========================================================================== -->
     <footer class="footer-main theme-dark">
         <div class="container footer-grid">
             <div class="footer-col branding">
