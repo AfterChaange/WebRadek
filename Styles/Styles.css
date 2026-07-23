@@ -327,7 +327,8 @@ h1, h2, h3, h4 {
 }
 
 .text-center-hero h1 {
-    color: #333 !important;
+    color: var(--color-text-dark-theme) !important;
+    /* color: #333 !important; */
     font-size: 4.6rem;
     line-height: 1.12;
     margin: 20px 0;
