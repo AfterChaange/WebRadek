@@ -1599,3 +1599,65 @@ input:checked + .slider:before {
         border-bottom: none;
     }
 }
+/* ==========================================================================
+   Sekce: Terapeutický prostor - rozšíření text + foto
+   ========================================================================== */
+.space-content-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 48px;
+    align-items: center;
+    margin-top: 64px;
+}
+
+.space-text-content p {
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+.methodology-badge {
+    background-color: rgba(216, 156, 116, 0.12);
+    border-left: 3px solid var(--color-accent);
+    padding: 18px 24px;
+    border-radius: 0 var(--border-radius-sm) var(--border-radius-sm) 0;
+    margin-top: 28px;
+}
+
+.methodology-badge p {
+    margin: 0;
+    font-size: 0.98rem;
+    color: var(--color-primary-dark);
+}
+
+.space-image-wrapper {
+    position: relative;
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(50, 77, 65, 0.08);
+}
+
+.space-image {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    display: block;
+    transition: var(--transition-smooth);
+}
+
+.space-image-wrapper:hover .space-image {
+    transform: scale(1.03);
+}
+
+/* Responsive breakpoint pro novou sekci */
+@media (max-width: 868px) {
+    .space-content-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        margin-top: 40px;
+    }
+    
+    .space-image {
+        height: 300px;
+    }
+}
