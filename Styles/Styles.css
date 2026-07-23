@@ -639,6 +639,12 @@ h1, h2, h3, h4 {
     position: relative;
     z-index: 2;
 }
+.about-text {
+    font-size: 1.25rem;
+    line-height: 1.75;
+    margin-bottom: 24px;
+    color: var(--color-text-muted-light);
+}
 
 /* ==========================================================================
     Sekce: Info 
@@ -881,7 +887,6 @@ h1, h2, h3, h4 {
     box-shadow: none !important;
     border-radius: 0;
     overflow: visible;
-    order: 2;
     margin-right: -160px;
 }
 
@@ -898,7 +903,6 @@ h1, h2, h3, h4 {
 .info-content-right {
     width: 100%;
     max-width: 600px;
-    order: 1;
 }
 
 .info-section-clean .formats-grid {
