@@ -49,8 +49,14 @@ body {
     padding: 0 24px;
 }
 
-/* ==========================================================================
-   Sekce: Head a text
+@media (max-width: 1200px) {
+    .container {
+        padding: 0 20px;
+    }
+}
+
+/* ========================================================================== 
+    Sekce: Typografie
    ========================================================================== */
 h1, h2, h3, h4 {
     font-family: var(--font-headings);
@@ -83,8 +89,8 @@ h1, h2, h3, h4 {
     text-align: center;
 }
 
-/* ==========================================================================
-    Sekce: Střídání témat
+/* ========================================================================== 
+    Sekce: Pomocné barvy a témata
     ========================================================================== */
 .theme-light {
     background-color: var(--color-bg-light);
@@ -198,8 +204,8 @@ h1, h2, h3, h4 {
     background-color: var(--color-accent) !important;
 }
 
-/* ==========================================================================
-    Sekce: burger
+/* ========================================================================== 
+    Sekce: Mobilní navigace
     ========================================================================== */
 .menu-toggle {
     display: none;
@@ -385,8 +391,8 @@ h1, h2, h3, h4 {
     50% { transform: translateY(12px); opacity: 1; }
 }
 
-/* ==========================================================================
-    Sekce: O mně 
+/* ========================================================================== 
+    Sekce: O mně
     ========================================================================== */
 .about-section {
     padding: 140px 0;
@@ -580,12 +586,12 @@ h1, h2, h3, h4 {
 .pillars-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
+    gap: 22px;
 }
 
 .pillar-card {
     position: relative;
-    padding: 44px 36px;
+    padding: 28px 28px;
     border-radius: var(--border-radius-md);
     overflow: hidden;
     transition: var(--transition-smooth);
@@ -615,20 +621,20 @@ h1, h2, h3, h4 {
 }
 
 .pillar-icon {
-    width: 48px;
-    height: 48px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 24px;
+    margin-bottom: 16px;
     position: relative;
     z-index: 2;
 }
 
 .pillar-card h4 {
-    font-size: 1.2rem;
-    margin-bottom: 12px;
+    font-size: 1.08rem;
+    margin-bottom: 8px;
     position: relative;
     z-index: 2;
 }
@@ -647,8 +653,8 @@ h1, h2, h3, h4 {
     color: var(--color-text-muted-light);
 }
 
-/* ==========================================================================
-    Sekce: Info 
+/* ========================================================================== 
+    Sekce: Archivní info bloky
     ========================================================================== */
 .info-section {
     padding: 140px 0;
@@ -753,8 +759,8 @@ h1, h2, h3, h4 {
     color: var(--color-accent-dark);
 }
 
-/* ==========================================================================
-    Sekce: Samostatný ceník
+/* ========================================================================== 
+    Sekce: Ceník
     ========================================================================== */
 .pricing-section {
     padding: 140px 0;
@@ -862,9 +868,9 @@ h1, h2, h3, h4 {
 
 
 
-/* ==========================================================================
-   Sekce: Info / Praktické informace
-   ========================================================================== */
+/* ========================================================================== 
+    Sekce: Info
+    ========================================================================== */
 .info-section-clean {
     background-color: #ffffff !important;
     padding: 120px 0;
@@ -1129,8 +1135,8 @@ h1, h2, h3, h4 {
     opacity: 0;
 }
 
-/* ==========================================================================
-    Sekce: Footer
+/* ========================================================================== 
+    Sekce: Patička
     ========================================================================== */
 .footer-main {
     background-color: var(--color-primary-dark);
@@ -1239,10 +1245,57 @@ h1, h2, h3, h4 {
     .text-center-hero h1 {
         font-size: 3.5rem;
     }
+
+    .hero-section {
+        padding: 100px 0 120px;
+        min-height: auto;
+    }
+
+    .about-section,
+    .pricing-section,
+    .contact-section {
+        padding: 110px 0;
+    }
+
+    .about-grid,
+    .contact-grid {
+        gap: 32px;
+    }
+
+    .approach-block {
+        margin-top: 100px;
+        padding-top: 60px;
+    }
+
+    .credo-quote {
+        padding: 0 20px;
+        margin-bottom: 48px;
+    }
+
+    .pillars-grid {
+        gap: 16px;
+    }
+
+    .pillar-card {
+        padding: 24px 22px;
+    }
+
+    .pricing-grid {
+        gap: 24px;
+        margin-top: 48px;
+    }
+
+    .price-card {
+        padding: 44px 32px;
+    }
+
+    .contact-visual {
+        height: 400px;
+    }
     
     .about-grid,
     .contact-grid {
-        gap: 40px;
+        gap: 32px;
     }
     
     .footer-grid {
@@ -1269,19 +1322,60 @@ h1, h2, h3, h4 {
     .info-section-clean .formats-grid {
         grid-template-columns: 1fr;
     }
+
+    .text-center-hero h1 {
+        font-size: 3.1rem;
+    }
+
+    .text-center-hero .hero-lead {
+        font-size: 1.12rem;
+        max-width: 600px;
+    }
+
+    .about-content h2,
+    .pricing-header h2,
+    .contact-info h2 {
+        font-size: 2.6rem;
+    }
+
+    .about-content .lead-text {
+        font-size: 1.12rem;
+    }
+
+    .space-content-grid {
+        gap: 28px;
+    }
+
+    .space-image {
+        height: 280px;
+    }
+
+    .contact-section {
+        padding-bottom: 140px;
+    }
 }
 
 @media (max-width: 768px) {
     html {
         font-size: 15px;
     }
+
+    .container {
+        padding: 0 18px;
+    }
     
     .hero-section {
-        padding: 100px 0;
+        padding: 88px 0 96px;
+        min-height: auto;
     }
 
     .text-center-hero h1 {
-        font-size: 3rem;
+        font-size: 2.7rem;
+    }
+
+    .text-center-hero .hero-lead {
+        font-size: 1.05rem;
+        margin-bottom: 32px;
     }
     
     .menu-toggle {
@@ -1295,7 +1389,7 @@ h1, h2, h3, h4 {
         width: 80%;
         max-width: 320px;
         height: 100vh;
-        background-color: var(--color-bg-light);
+        background-color: #F8F9FA;
         flex-direction: column;
         justify-content: center;
         align-items: center;
@@ -1338,21 +1432,44 @@ h1, h2, h3, h4 {
     }
     
     .about-visual {
-        margin-bottom: 30px;
+        margin-bottom: 18px;
     }
     
     .about-organic-wrapper {
-        max-width: 280px;
-        height: 380px;
+        max-width: 260px;
+        height: 340px;
+    }
+
+    .about-content h2 {
+        font-size: 2.25rem;
+        margin-bottom: 20px;
+    }
+
+    .about-content .lead-text {
+        font-size: 1.05rem;
+    }
+
+    .about-content p,
+    .space-text-content p {
+        margin-bottom: 18px;
     }
     
     .credo-quote p {
-        font-size: 1.35rem;
+        font-size: 1.18rem;
+    }
+
+    .approach-block {
+        margin-top: 72px;
+        padding-top: 44px;
     }
     
     .pillars-grid {
         grid-template-columns: 1fr;
         gap: 20px;
+    }
+
+    .pillar-card {
+        padding: 22px 20px;
     }
     
     .topic-row {
@@ -1373,10 +1490,23 @@ h1, h2, h3, h4 {
         margin-left: auto;
         margin-right: auto;
     }
+
+    .pricing-header h2,
+    .contact-info h2 {
+        font-size: 2.3rem;
+    }
+
+    .price-card {
+        padding: 36px 26px;
+    }
     
     .formats-grid {
         grid-template-columns: 1fr;
         gap: 20px;
+    }
+
+    .info-note {
+        padding: 20px 22px;
     }
     
     .contact-grid {
@@ -1385,13 +1515,29 @@ h1, h2, h3, h4 {
     }
     
     .contact-visual {
-        height: 350px;
+        height: 320px;
+    }
+
+    .details-list {
+        gap: 20px;
+    }
+
+    .contact-card-item {
+        padding: 18px 20px;
     }
 }
 
 @media (max-width: 576px) {
+    .container {
+        padding: 0 16px;
+    }
+
     .text-center-hero h1 {
-        font-size: 2.4rem;
+        font-size: 2.25rem;
+    }
+
+    .text-center-hero .hero-lead {
+        font-size: 0.98rem;
     }
     
     .hero-actions-centered {
@@ -1402,20 +1548,122 @@ h1, h2, h3, h4 {
     .hero-actions-centered .btn {
         width: 100%;
     }
+
+    .about-section,
+    .pricing-section,
+    .contact-section {
+        padding: 88px 0;
+    }
+
+    .about-organic-wrapper {
+        max-width: 230px;
+        height: 300px;
+    }
+
+    .about-content h2,
+    .pricing-header h2,
+    .contact-info h2 {
+        font-size: 2rem;
+    }
+
+    .credo-quote {
+        padding: 0;
+        margin-bottom: 36px;
+    }
+
+    .credo-quote p {
+        font-size: 1.08rem;
+    }
+
+    .pillar-card {
+        padding: 20px 18px;
+    }
+
+    .price-card {
+        padding: 30px 20px;
+    }
+
+    .price-value {
+        font-size: 1.9rem;
+    }
+
+    .contact-visual {
+        height: 280px;
+    }
+
+    .contact-card-item {
+        gap: 14px;
+        padding: 16px 18px;
+    }
+
+    .detail-icon {
+        width: 48px;
+        height: 48px;
+    }
+
+    .footer-main {
+        padding: 64px 0 28px;
+    }
     
     .footer-grid {
         grid-template-columns: 1fr;
+        gap: 32px;
     }
     
     .footer-col.branding {
         grid-column: span 1;
     }
+
+    .footer-bottom {
+        margin-top: 40px;
+        padding-top: 24px;
+        text-align: center;
+    }
     .smallFooter {
         font-size: 2px;
     }
 }
-/* ==========================================================================
-    Sekce: Cookie Popup
+
+@media (max-width: 420px) {
+    .text-center-hero h1 {
+        font-size: 2rem;
+    }
+
+    .badge {
+        font-size: 0.74rem;
+        padding: 5px 12px;
+    }
+
+    .hero-section {
+        padding: 78px 0 84px;
+    }
+
+    .about-organic-wrapper {
+        max-width: 210px;
+        height: 280px;
+    }
+
+    .section-subtitle {
+        font-size: 0.72rem;
+        letter-spacing: 1.8px;
+    }
+
+    .format-card,
+    .info-note,
+    .contact-card-item {
+        border-radius: 16px;
+    }
+
+    .space-image {
+        height: 240px;
+    }
+
+    .contact-visual {
+        height: 250px;
+    }
+}
+/* ========================================================================== 
+    Sekce: Cookie banner
     ========================================================================== */
 .cookie-banner {
     position: fixed;
