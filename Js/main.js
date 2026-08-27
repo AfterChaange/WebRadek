@@ -100,21 +100,92 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     /* ==========================================================================
-       Sekce: Klikací akordeon témat
+       Sekce: Akordeon témat (Hover)
        ========================================================================== */
     const topicRows = document.querySelectorAll('.topic-row');
     topicRows.forEach(row => {
-        row.addEventListener('click', function() {
+        const activateRow = () => {
             topicRows.forEach(otherRow => {
-                if (otherRow !== row) {
-                    otherRow.classList.remove('active');
-                }
+                const isTarget = otherRow === row;
+                otherRow.classList.toggle('active', isTarget);
+                otherRow.setAttribute('aria-expanded', String(isTarget));
             });
-            this.classList.toggle('active');
+        };
+
+        const deactivateRows = () => {
+            topicRows.forEach(otherRow => {
+                otherRow.classList.remove('active');
+                otherRow.setAttribute('aria-expanded', 'false');
+            });
+        };
+
+        row.addEventListener('mouseenter', activateRow);
+        row.addEventListener('mouseleave', deactivateRows);
+        row.addEventListener('focusin', activateRow);
+        row.addEventListener('focusout', deactivateRows);
+
+        row.addEventListener('click', () => {
+            if (window.matchMedia('(hover: none)').matches) {
+                const isActive = row.classList.contains('active');
+                if (isActive) {
+                    deactivateRows();
+                } else {
+                    activateRow();
+                }
+            }
         });
     });
+
+    /* ==========================================================================
+       Sekce: Rozbalovací pilíře
+       ========================================================================== */
+    const pillarCards = document.querySelectorAll('.pillar-card');
+
+    const togglePillarCard = (card) => {
+        const isActive = card.classList.contains('active');
+
+        pillarCards.forEach(otherCard => {
+            if (otherCard !== card) {
+                otherCard.classList.remove('active');
+                otherCard.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        card.classList.toggle('active', !isActive);
+        card.setAttribute('aria-expanded', String(!isActive));
+    };
+
+    pillarCards.forEach(card => {
+        card.addEventListener('click', () => togglePillarCard(card));
+        card.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                togglePillarCard(card);
+            }
+        });
+    });
+
     const sections = document.querySelectorAll("section[id]");
     const navLinks = document.querySelectorAll("#mainNav a");
+    const getLinkHash = (link) => {
+        try {
+            return new URL(link.href, window.location.href).hash;
+        } catch (error) {
+            const href = link.getAttribute('href') || '';
+            const hashIndex = href.indexOf('#');
+            return hashIndex >= 0 ? href.slice(hashIndex) : '';
+        }
+    };
+
+    const setActiveNavLink = (currentId) => {
+        navLinks.forEach((link) => {
+            if (getLinkHash(link) === `#${currentId}`) {
+                link.classList.add("active");
+            } else {
+                link.classList.remove("active");
+            }
+        });
+    };
 
     const observerOptions = {
         root: null,
@@ -125,17 +196,109 @@ document.addEventListener('DOMContentLoaded', function() {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
                 const currentId = entry.target.getAttribute("id");
-
-                navLinks.forEach((link) => {
-                    if (link.getAttribute("href") === `#${currentId}`) {
-                        link.classList.add("active");
-                    } else {
-                        link.classList.remove("active");
-                    }
-                });
+                setActiveNavLink(currentId);
             }
         });
     }, observerOptions);
 
     sections.forEach((section) => observer.observe(section));
+
+    const detailPageActiveSection = window.location.pathname.toLowerCase().endsWith('detail.html') ? 'o-mne' : null;
+    if (detailPageActiveSection) {
+        setActiveNavLink(detailPageActiveSection);
+    }
+
+    /* ==========================================================================
+       Sekce: Carousel terapeutovny
+       ========================================================================== */
+    const carousel = document.getElementById('therapyCarousel');
+
+    if (carousel) {
+        const slides = carousel.querySelectorAll('.space-image');
+        const dots = carousel.querySelectorAll('.space-dot');
+        const prevBtn = carousel.querySelector('.space-carousel-btn.prev');
+        const nextBtn = carousel.querySelector('.space-carousel-btn.next');
+        const autoplayDelay = 7000;
+        let currentSlide = 0;
+        let autoplayId = null;
+
+        const showSlide = (index) => {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+
+            currentSlide = index;
+        };
+
+        const goToNext = () => {
+            const nextIndex = (currentSlide + 1) % slides.length;
+            showSlide(nextIndex);
+        };
+
+        const goToPrev = () => {
+            const prevIndex = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(prevIndex);
+        };
+
+        const startAutoplay = () => {
+            if (autoplayId) {
+                clearInterval(autoplayId);
+            }
+
+            autoplayId = setInterval(goToNext, autoplayDelay);
+        };
+
+        const stopAutoplay = () => {
+            if (autoplayId) {
+                clearInterval(autoplayId);
+                autoplayId = null;
+            }
+        };
+
+        const resetAutoplay = () => {
+            stopAutoplay();
+            startAutoplay();
+        };
+
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                goToNext();
+                resetAutoplay();
+            });
+        }
+
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                goToPrev();
+                resetAutoplay();
+            });
+        }
+
+        dots.forEach((dot) => {
+            dot.addEventListener('click', () => {
+                const target = Number(dot.dataset.slide);
+                if (!Number.isNaN(target)) {
+                    showSlide(target);
+                    resetAutoplay();
+                }
+            });
+        });
+
+        carousel.addEventListener('mouseenter', stopAutoplay);
+        carousel.addEventListener('mouseleave', startAutoplay);
+
+        showSlide(0);
+        startAutoplay();
+    }
+
+
+    // import { config } from '@fortawesome/fontawesome-svg-core';
+    // import '@fortawesome/fontawesome-svg-core/styles.css';
+
+    // // Zamezí obřímu probliknutí/vykreslení ikon bez CSS
+    // config.autoAddCss = false;
 });

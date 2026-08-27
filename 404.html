@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="cs">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="Stránka nenalezena.">
+    <title>404 | Stránka nenalezena</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Styles/Styles.css">
+    <style>
+        .not-found-page {
+            background: linear-gradient(180deg, #fbfcf8 0%, #f4f6f1 48%, #eef2ec 100%);
+        }
+
+        .not-found-page .not-found-main {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .not-found-page .not-found-main .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .not-found-page .not-found-copy {
+            max-width: 680px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 72px 0;
+        }
+
+        .not-found-page h1 {
+            margin: 0;
+            font-size: clamp(3.6rem, 10vw, 7rem);
+        }
+
+        .not-found-page .lead-text {
+            max-width: 22ch;
+            margin: 18px auto 0;
+            font-size: clamp(1.15rem, 2vw, 1.35rem);
+        }
+
+        .not-found-page .not-found-actions {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .not-found-page .blob-1 {
+            opacity: 0.18;
+        }
+
+        .not-found-page .blob-2 {
+            opacity: 0.16;
+        }
+
+        @media (max-width: 720px) {
+            .not-found-page .not-found-copy {
+                padding: 56px 0;
+            }
+        }
+    </style>
+</head>
+<body class="detail-page not-found-page">
+    <main class="not-found-main theme-light-blobs">
+        <div class="blob-container">
+            <div class="blob blob-1"></div>
+            <div class="blob blob-2"></div>
+        </div>
+
+        <div class="container">
+            <div class="not-found-copy">
+                <span class="section-subtitle text-center">404</span>
+                <h1>Stránka nenalezena</h1>
+                <p class="lead-text">Požadovaná stránka neexistuje nebo byla přesunuta.</p>
+                <div class="not-found-actions">
+                    <a href="index" class="btn btn-primary">Zpět na úvod</a>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

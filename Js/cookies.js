@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const btnRejectAll = document.getElementById("cookie-reject-all");
     
     const chkAnalytics = document.getElementById("cookie-ana");
-    const chkMarketing = document.getElementById("cookie-mkt");
 
     // Načtení uloženého nastavení
     const savedConsent = JSON.parse(localStorage.getItem("cookieConsent"));
@@ -27,20 +26,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 1. Přijmout vše
     btnAcceptAll.addEventListener("click", () => {
-        saveConsent({ essential: true, analytics: true, marketing: true });
+        saveConsent({ essential: true, analytics: true });
     });
 
     // 2. Odmítnout vše (kromě nezbytných)
     btnRejectAll.addEventListener("click", () => {
-        saveConsent({ essential: true, analytics: false, marketing: false });
+        saveConsent({ essential: true, analytics: false });
     });
 
     // 3. Uložit vlastní výběr
     btnSaveCustom.addEventListener("click", () => {
         saveConsent({
             essential: true,
-            analytics: chkAnalytics.checked,
-            marketing: chkMarketing.checked
+            analytics: chkAnalytics.checked
         });
     });
 
@@ -50,11 +48,6 @@ document.addEventListener("DOMContentLoaded", () => {
             console.log("Spouštím Analytické cookies (např. Google Analytics)...");
             // SEM VLOŽTE KÓD PRO GOOGLE ANALYTICS
             // Příklad: (function(w,d,s,l,i){...})(window,document,'script','dataLayer','G-XXXXX');
-        }
-        
-        if (consent.marketing) {
-            console.log("Spouštím Marketingové cookies (např. Facebook Pixel)...");
-            // SEM VLOŽTE KÓD PRO FACEBOOK PIXEL, SKLIK ATD.
         }
     }
 });

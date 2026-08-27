@@ -1,22 +1,32 @@
 TODO list
 
-grafika = min 4x malovaný obrázek a foto --:
-jak pracuji jiný layout
-pro koho je terapie užitečná lepší grafika
-sjednotit formu a praktické informace
-cookies
-tlačítko
+----    grafika = min 4x malovaný obrázek a foto --:    ----
+----    jak pracuji jiný layout                         ----
+----    pro koho je terapie užitečná lepší grafika      ----
+----    sjednotit formu a praktické informace           ----
+----    cookies     ----
+----    tlačítko    ----
 
 
 
 
-Jsem kandidátním členem České asociace pro psychoterapii a a řídím se jeho
-kodexem (odkaz), se kterým souzním.
+----    Jsem kandidátním členem České asociace pro psychoterapii a a řídím se jeho  ----
+----    kodexem (odkaz), se kterým souzním.                                         ----
 
 
 
 
-otevírací doba po konzultaci
+----    otevírací doba po konzultaci        ----
 detail o mě + czapka
-praktické informace design
+----    praktické informace design          ----    
 fav ico
+kontakt bg
+
+
+
+
+carrousel rychlost          -----------         done 
+img 1 a 3                   -----------         done
+about img                   -----------         done
+key words
+search engine
